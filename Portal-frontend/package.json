@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build": "echo 'Skipping build step'",
     "lint": "eslint .",
     "preview": "vite preview"
   },
