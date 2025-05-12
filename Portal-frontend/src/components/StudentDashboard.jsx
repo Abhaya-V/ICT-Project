@@ -29,7 +29,7 @@ const StudentDashboard = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
 
-    axios.get('http://localhost:5000/api/projects', {
+    axios.get('https://ict-project-server.vercel.app/api/projects', {
       headers: { 'x-auth-token': token }
     })
       .then(response => {
@@ -40,7 +40,7 @@ const StudentDashboard = () => {
         alert("Unauthorized access. Please login again.");
       });
 
-    axios.get('http://localhost:5000/api/projects/student/selected-project', {
+    axios.get('https://ict-project-server.vercel.app/api/projects/student/selected-project', {
       headers: { 'x-auth-token': token }
     })
       .then(response => {
@@ -68,7 +68,7 @@ const StudentDashboard = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/projects/select/${projectId}`,
+        `https://ict-project-server.vercel.app/api/projects/select/${projectId}`,
         {},
         { headers: { 'x-auth-token': token } }
       );

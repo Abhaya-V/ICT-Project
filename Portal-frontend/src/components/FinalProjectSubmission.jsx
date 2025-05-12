@@ -49,21 +49,21 @@ const FinalProjectSubmission = () => {
             try {
                 // Fetch selected project ID
                 const projectResponse = await axios.get(
-                    'http://localhost:5000/api/projects/student/selected-project',
+                    'https://ict-project-server.vercel.app/api/projects/student/selected-project',
                     { headers: { 'x-auth-token': token } }
                 );
                 setSelectedProjectId(projectResponse.data.projectId);
 
                 // Fetch weekly submissions count
                 const weeklyResponse = await axios.get(
-                    `http://localhost:5000/api/weekly-submissions/count/${studentId}`,
+                    `https://ict-project-server.vercel.app/api/weekly-submissions/count/${studentId}`,
                     { headers: { 'x-auth-token': token } }
                 );
                 setWeeklySubmissionsCount(weeklyResponse.data.count || 0);
 
                 // Fetch final report status
                 const reportResponse = await axios.get(
-                    `http://localhost:5000/api/final-reports/student/${studentId}`,
+                    `https://ict-project-server.vercel.app/api/final-reports/student/${studentId}`,
                     { headers: { 'x-auth-token': token } }
                 );
                 
@@ -91,7 +91,7 @@ const FinalProjectSubmission = () => {
 
             try {
                 const response = await axios.get(
-                    `http://localhost:5000/api/projects/project/${selectedProjectId}/end-date`,
+                    `https://ict-project-server.vercel.app/api/projects/project/${selectedProjectId}/end-date`,
                     { headers: { 'x-auth-token': token } }
                 );
                 setEndDate(response.data.endDate);
@@ -138,7 +138,7 @@ const FinalProjectSubmission = () => {
         }
 
         try {
-            const apiUrl = `http://localhost:5000/api/final-reports/student/${studentId}/final-report`;
+            const apiUrl = `https://ict-project-server.vercel.app/api/final-reports/student/${studentId}/final-report`;
             const headers = { 'x-auth-token': token };
             let formDataOrJson;
             let contentType;

@@ -58,7 +58,7 @@ const DiscussionForum = () => {
 
   const fetchQueries = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/forum", {
+      const res = await axios.get("https://ict-project-server.vercel.app/api/forum", {
         headers: {
           "x-auth-token": token,
         },
@@ -78,7 +78,7 @@ const DiscussionForum = () => {
 
     try {
       const payload = { ...newQuery, author: studentId };
-      await axios.post("http://localhost:5000/api/forum", payload, {
+      await axios.post("https://ict-project-server.vercel.app/api/forum", payload, {
         headers: { "x-auth-token": token },
       });
 
@@ -101,7 +101,7 @@ const DiscussionForum = () => {
 
     try {
       await axios.post(
-        `http://localhost:5000/api/forum/${queryId}/comment`,
+        `https://ict-project-server.vercel.app/api/forum/${queryId}/comment`,
         { text, author: studentId },
         { headers: { "x-auth-token": token } }
       );
@@ -118,7 +118,7 @@ const DiscussionForum = () => {
   const handleLike = async (queryId) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/forum/${queryId}/like`,
+        `https://ict-project-server.vercel.app/api/forum/${queryId}/like`,
         { studentId },
         { headers: { "x-auth-token": token } }
       );
@@ -136,7 +136,7 @@ const DiscussionForum = () => {
   const handleLikeComment = async (queryId, commentId) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/forum/${queryId}/comment/${commentId}/like`,
+        `https://ict-project-server.vercel.app/api/forum/${queryId}/comment/${commentId}/like`,
         { studentId },
         { headers: { "x-auth-token": token } }
       );
@@ -154,7 +154,7 @@ const DiscussionForum = () => {
   const handleSaveEdit = async (queryId) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/forum/${queryId}`,
+        `https://ict-project-server.vercel.app/api/forum/${queryId}`,
         { ...editValues },
         { headers: { "x-auth-token": token } }
       );

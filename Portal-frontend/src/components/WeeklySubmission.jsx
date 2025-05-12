@@ -9,7 +9,7 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import { jwtDecode } from 'jwt-decode';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://ict-project-server.vercel.app/api';
 
 const WeeklySubmission = () => {
     const [studentId, setStudentId] = useState(null);

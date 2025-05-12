@@ -18,7 +18,7 @@ const VivaVoce = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        const response = await axios.get('http://localhost:5000/api/viva-voce', {
+        const response = await axios.get('https://ict-project-server.vercel.app/api/viva-voce', {
           headers: {
             'x-auth-token': token
           }
@@ -68,7 +68,7 @@ const VivaVoce = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      await axios.post('http://localhost:5000/api/viva-voce/upload', formData, {
+      await axios.post('https://ict-project-server.vercel.app/api/viva-voce/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'x-auth-token': token

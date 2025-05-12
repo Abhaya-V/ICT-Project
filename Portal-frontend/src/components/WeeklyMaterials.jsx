@@ -37,7 +37,7 @@ const WeeklyMaterials = () => {
         const token = localStorage.getItem("token");
         const decoded = jwtDecode(token);
         const studentId = decoded?.student?.id;
-        const res = await axios.get(`http://localhost:5000/api/projects/student/${studentId}`);
+        const res = await axios.get(`https://ict-project-server.vercel.app/api/projects/student/${studentId}`);
         setProjectId(res.data._id);
       } catch (err) {
         console.error("Error fetching project:", err);
@@ -51,7 +51,7 @@ const WeeklyMaterials = () => {
     const fetchMaterials = async () => {
       if (!projectId) return;
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/reference/${projectId}`);
+        const { data } = await axios.get(`https://ict-project-server.vercel.app/api/reference/${projectId}`);
         const cleanedWeeks = data.referenceMaterials.map(item => ({
           ...item,
           title: item.title.replace(`Week ${item.week}:`, '').trim()
@@ -78,7 +78,7 @@ const WeeklyMaterials = () => {
   const handleAccordionChange = async (weekNumber) => {
     if (!weekDetails[weekNumber]) {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/reference/${projectId}`);
+        const { data } = await axios.get(`https://ict-project-server.vercel.app/api/reference/${projectId}`);
         const weekData = data.referenceMaterials.find(item => item.week === weekNumber);
         if (weekData) setWeekDetails(prev => ({ ...prev, [weekNumber]: weekData }));
       } catch (err) {

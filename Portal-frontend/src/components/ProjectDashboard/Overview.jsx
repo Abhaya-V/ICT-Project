@@ -37,7 +37,7 @@ const Overview = () => {
     const fetchSelectedProject = async () => {
       try {
         // to get the selected project's ID
-        const response = await axios.get('http://localhost:5000/api/projects/student/selected-project', {
+        const response = await axios.get('https://ict-project-server.vercel.app/api/projects/student/selected-project', {
           headers: {
             'x-auth-token': token,
           },
@@ -47,7 +47,7 @@ const Overview = () => {
 
         if (projectId) {
           // If project ID is found, fetch full project details
-          const projectDetails = await axios.get(`http://localhost:5000/api/projects/${projectId}`, {
+          const projectDetails = await axios.get(`https://ict-project-server.vercel.app/api/projects/${projectId}`, {
             headers: {
               'x-auth-token': token,
             },
@@ -72,7 +72,7 @@ const Overview = () => {
     const token = localStorage.getItem('token');
     try {
       // Send a request to the backend to generate the PDF for the selected project
-      const res = await axios.get(`http://localhost:5000/api/pdf/generate-pdf/${projectId}`, {
+      const res = await axios.get(`https://ict-project-server.vercel.app/api/pdf/generate-pdf/${projectId}`, {
         headers: {
           'x-auth-token': token,
         },

@@ -73,7 +73,7 @@ const SignUp = ({ onswitchForm }) => {
     }
 
     try {
-      await axios.post("http://localhost:5000/SignUp", userform);
+      await axios.post("https://ict-project-server.vercel.app/SignUp", userform);
       alert("SignUp successful!"); // blocks the thread until user dismisses
       setTimeout(() => {
         window.location.href = "/logincontroller"; // hard refresh + navigation
