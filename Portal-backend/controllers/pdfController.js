@@ -156,7 +156,8 @@ const generateProjectPDF = async (req, res) => {
     return res.json({ pdfUrl: downloadUrl });
   } catch (err) {
     console.error('Error:', err);
-    return res.status(500).send('Something went wrong.');
+    // return res.status(500).send('Something went wrong.');
+    res.status(500).json({ error: err.message, stack: err.stack });
   }
 };
 
