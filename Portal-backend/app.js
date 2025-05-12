@@ -82,6 +82,11 @@ const finalReportUpload = multer({
 app.use(bodyParser.json());
 app.use(cors());
 
+app.use(cors({
+    origin: "https://ict-project-client.vercel.app", 
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"]
+  }));
 // Define Routes
 const basicRoutes = require("./routes/studentRoutes");
 app.use("/signup", basicRoutes);
