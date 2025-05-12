@@ -222,7 +222,7 @@ const createSubmission = async (req, res) => {
 const isWeekend = () => {
     const today = new Date();
     const day = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-    return day === 1 || day === 6;
+    return day === 0 || day === 6;
 };
 
 // Check submission period status (now considers weekend)
