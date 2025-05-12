@@ -18,7 +18,7 @@ import FeedbackMark from "./FeedbackMark";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 const ProjectDashboard = () => {
   const today = new Date().getDay();
-    const isWeekend = today === 6 || today === 0;
+    const isWeekend = today === 1 || today === 0;
     const { projectId: projectIdFromRoute } = useParams(); // Get projectId from URL
     const [isAddSubmission, setIsAddSubmission] = useState(false);
     const [projectId, setProjectId] = useState(projectIdFromRoute); // Set projectId from route param
