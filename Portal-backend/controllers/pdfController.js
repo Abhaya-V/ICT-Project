@@ -28,7 +28,7 @@ const generateProjectPDF = async (req, res) => {
       const result = await new Promise((resolve, reject) => {
         const cloudinaryStream = cloudinary.uploader.upload_stream(
           {
-            resource_type: 'raw',
+            resource_type: 'auto',
             folder: 'project_overviews',
             public_id: fileName.replace('.pdf', ''),
             use_filename: true,
