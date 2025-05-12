@@ -44,14 +44,8 @@ const generateProjectPDF = async (req, res) => {
         bufferStream.pipe(cloudinaryStream);
       });
 
-      // Construct downloadable link
-      const downloadUrl = cloudinary.url(result.public_id, {
-        resource_type: 'raw',
-        type: 'upload',
-        attachment: true,
-      });
-
-      return res.json({ pdfUrl: downloadUrl });
+      // Directly use the secure URL from the Cloudinary result
+      return res.json({ pdfUrl: result.secure_url });
     });
 
     // ------- PDF Content Writing Below --------
